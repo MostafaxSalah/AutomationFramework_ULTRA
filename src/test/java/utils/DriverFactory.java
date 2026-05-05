@@ -22,7 +22,7 @@ public class DriverFactory {
         options.addArguments("--disable-save-password-bubble");
 
         // إعدادات التشغيل في الخلفية (مهمة جداً لخوادم GitHub Actions)
-        options.addArguments("--headless=new"); 
+       // options.addArguments("--headless=new"); 
         options.addArguments("--no-sandbox"); 
         options.addArguments("--disable-dev-shm-usage"); 
         options.addArguments("--disable-gpu"); 

@@ -14,11 +14,18 @@ public class DriverFactory {
     public static void initDriver() {
         WebDriverManager.chromedriver().setup();
 
-        // إعدادات منع النوافذ المنبثقة ومدير كلمات المرور
         ChromeOptions options = new ChromeOptions();
+        
+        // إعدادات منع النوافذ المنبثقة ومدير كلمات المرور
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--disable-save-password-bubble");
+
+        // إعدادات التشغيل في الخلفية (مهمة جداً لخوادم GitHub Actions)
+        options.addArguments("--headless=new"); 
+        options.addArguments("--no-sandbox"); 
+        options.addArguments("--disable-dev-shm-usage"); 
+        options.addArguments("--disable-gpu"); 
 
         Map<String, Object> prefs = new HashMap<>();
         prefs.put("credentials_enable_service", false);
